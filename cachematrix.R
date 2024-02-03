@@ -1,8 +1,3 @@
-# the following functions sorta take the example mean functions, hollow
-# them out, and swap in some stuff to compute the inverse of a matrix.
-# something gets cached along the way too.
-
-
 # this here function makes the thing out of the other thing
 
 makeCacheMatrix <- function(A = matrix()) {
@@ -22,8 +17,7 @@ makeCacheMatrix <- function(A = matrix()) {
 }
 
 
-# this one right here does the other part.  the prefilled comment said:
-# "Return a matrix that is the inverse of 'x'".  we'll assume it does that.
+# this function right here does the other part.
 
 cacheSolve <- function(thing, ...) {
 
@@ -42,7 +36,7 @@ cacheSolve <- function(thing, ...) {
 }
 
 
-# some code entered into the command line:
+# what the above code does:
 
 # > source("cachematrix.R")
 # > M <- matrix(1:4, 2, 2)
@@ -50,35 +44,23 @@ cacheSolve <- function(thing, ...) {
 #      [,1] [,2]
 # [1,]    1    3
 # [2,]    2    4
-# > thang <- makeCacheMatrix(M)
-# > thang$get()
+# > what <- makeCacheMatrix(M)
+# > what$get()
 #      [,1] [,2]
 # [1,]    1    3
 # [2,]    2    4
-# > thang$get_inv()
+# > what$get_inv()
 # NULL
-# > cacheSolve(thang)
-# [,1] [,2]
+# > cacheSolve(what)
+#      [,1] [,2]
 # [1,]   -2  1.5
 # [2,]    1 -0.5
-# > thang$get_inv()
-# [,1] [,2]
+# > what$get_inv()
+#      [,1] [,2]
 # [1,]   -2  1.5
 # [2,]    1 -0.5
 # > solve(M)
-# [,1] [,2]
+#      [,1] [,2]
 # [1,]   -2  1.5
 # [2,]    1 -0.5
-# > N <- matrix(5:8, 2, 2)
-# > thang$set(N)
-# > thang$get_inv()
-# NULL
-# > cacheSolve(thang)
-# [,1] [,2]
-# [1,]   -4  3.5
-# [2,]    3 -2.5
-# > solve(N)
-# [,1] [,2]
-# [1,]   -4  3.5
-# [2,]    3 -2.5
 
